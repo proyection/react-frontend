@@ -2,25 +2,28 @@ import React, { Component } from 'react';
 
 class ProjectTaskItem extends Component {
     render() {
+        const {project_task} = this.props;
         return (
             <div className="card mb-1 bg-light">
     
                 <div className="card-header text-primary">
-                    ID: id
+                    ID: {project_task.id}
                 </div>
                 <div className="card-body bg-light">
-                    <h5 className="card-title">summary</h5>
+                    <h5 className="card-title">{project_task.summary}</h5>
                     <p className="card-text text-truncate ">
-                        acceptance
+                        {project_task.acceptanceCriteria}
                     </p>
                     <p className="card-text text-truncate ">
-                        Fecha límite: fecha
+                        Fecha límite: {project_task.limitDate}
                     </p>
-                    <a href={`updateProjectTask`} className="btn btn-primary">
+                    <a href={`updateProjectTask/${project_task.id}`} className="btn btn-primary">
                         View / Update
                     </a>
     
-                    <button className="btn btn-danger ml-4">
+                    <button className="btn btn-danger ml-4"
+                    // onClick={this.onDeleteClick.bind(this, project_task.id)}
+                    >
                         Delete  
                     </button>
                 </div>
