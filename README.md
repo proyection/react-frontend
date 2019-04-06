@@ -18,7 +18,9 @@ This is the react frontend project
 ## Run the application
 ---
 1. Make sure to have installed node.js --> type node -v in your terminal to check if you have that installed.
-2. 
+2. Clone this repo.
+3. In your command line and in the repository location type: npm install.
+4. npm run.
 
 ## Branching
 ---
