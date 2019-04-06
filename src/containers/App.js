@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from '../store';
 import Navbar from '../components/Navbar';
 import ProjectBoard from '../components/ProjectBoard';
-import AddProjectTask from '../components/projectTask/UpdateProjectTask';
+import AddProjectTask from '../components/projectTask/AddProjectTask';
 
 class App extends Component {
   render() {
