@@ -6,7 +6,7 @@ This is the react frontend project
 
 ## Run the application
 ---
-First, get the latest version of the proyection spring backend.
+1. Clone this repository
 
 ## Branching
 ---
