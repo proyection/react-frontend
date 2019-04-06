@@ -10,9 +10,9 @@ class AddProjectTask extends Component {
                     <div className="row">
                         <div className="col-md-8 m-auto">
                             <Link to="/" className="btn btn-light">
-                                Back to Board
+                                Regresar al administrador de tareas
                             </Link>
-                            <h4 className="display-4 text-center">Add /Update Project Task</h4>
+                            <h4 className="display-4 text-center">Agregar /Actualizar tarea</h4>
                             <form>
                                 <div className="form-group">
                                     <input 
@@ -37,7 +37,7 @@ class AddProjectTask extends Component {
                                         className="form-control form-control-lg" 
                                         name="status"
                                     >
-                                        <option value="">Select Status</option>
+                                        <option value="">Seleccione estado</option>
                                         <option value="1">TO DO</option>
                                         <option value="2">IN PROGRESS</option>
                                         <option value="3">DONE</option>
