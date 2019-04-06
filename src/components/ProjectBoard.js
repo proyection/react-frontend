@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import ProjectTaskItem from './projectTask/ProjectTaskItem';
 
 class ProjectBoard extends Component {
     render() {
         return (
             <div className="container">
-                <a href="/addProjectTask" className="btn btn-primary mb-3">
+                <Link to="/addProjectTask" className="btn btn-primary mb-3">
                     <i className="fas fa-plus-circle"> Crear tarea</i>
-                </a>
+                </Link>
                 <br />
                 <hr />
                 <div>
