@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { deleteProjectTask } from '../../actions/projectTaskActions';
@@ -24,14 +25,14 @@ class ProjectTaskItem extends Component {
                     <p className="card-text text-truncate ">
                         Fecha límite: {project_task.limitDate}
                     </p>
-                    <a href={`updateProjectTask/${project_task.id}`} className="btn btn-primary">
-                        View / Update
-                    </a>
+                    <Link to={`updateProjectTask/${project_task.id}`} className="btn btn-primary">
+                        Ver / Actualizar
+                    </Link>
     
                     <button className="btn btn-danger ml-4"
                     onClick={this.onDeleteClick.bind(this, project_task.id)}
                     >
-                        Delete  
+                        Eliminar  
                     </button>
                 </div>
             </div>
