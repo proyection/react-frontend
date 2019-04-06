@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 class AddProjectTask extends Component {
     render() {
-        const { errors, summary, acceptanceCriteria, status, limitDate } = this.state;
     
         return (
             <div className="addProjectTask">
