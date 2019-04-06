@@ -4,9 +4,21 @@
 ---
 This is the react frontend project
 
+## IDE and Extensions
+---
+- We use vscode for developing our React Frontend project and the following extensions which will help a lot in our development process:
+  - Babel ES6/ES7
+  - Bracket Pair Colorizer
+  - ES7 React/Redux/GraphQL/React-Native snippets
+  - JavaScript (ES6) code snippets
+  - Node.js Modules Intellisense
+  - Path Intellisense
+  - Prettier - Code formatter
+  
 ## Run the application
 ---
-1. Clone this repository
+1. Make sure to have installed node.js --> type node -v in your terminal to check if you have that installed.
+2. 
 
 ## Branching
 ---
