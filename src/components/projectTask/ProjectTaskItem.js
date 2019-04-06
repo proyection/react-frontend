@@ -1,6 +1,13 @@
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import { deleteProjectTask } from '../../actions/projectTaskActions';
 class ProjectTaskItem extends Component {
+
+    onDeleteClick(project_task_id) {
+        this.props.deleteProjectTask(project_task_id)
+    }
+  
     render() {
         const {project_task} = this.props;
         return (
@@ -22,7 +29,7 @@ class ProjectTaskItem extends Component {
                     </a>
     
                     <button className="btn btn-danger ml-4"
-                    // onClick={this.onDeleteClick.bind(this, project_task.id)}
+                    onClick={this.onDeleteClick.bind(this, project_task.id)}
                     >
                         Delete  
                     </button>
@@ -32,4 +39,8 @@ class ProjectTaskItem extends Component {
     }
 }
 
-export default ProjectTaskItem;
+ProjectTaskItem.propTypes = {
+    deleteProjectTask: PropTypes.func.isRequired
+};
+
+export default connect(null, {deleteProjectTask}) (ProjectTaskItem);

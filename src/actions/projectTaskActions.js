@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { 
     GET_ERRORS,
-    GET_PROJECT_TASKS, 
+    GET_PROJECT_TASKS,
+    DELETE_PROJECT_TASK, 
 } from './types';
 
 export const addProjectTask = (project_task, history) => async dispatch => {
@@ -26,4 +27,14 @@ export const getBacklog = () => async dispatch => {
         type: GET_PROJECT_TASKS,
         payload: res.data
     })
+}
+
+export const deleteProjectTask = project_task_id => async dispatch => {
+    if(window.confirm(`Estás eliminando el proyecto ${project_task_id}. Esta acción no puede ser modificada.`)){
+        await axios.delete(`http://localhost:8080/api/boards/${project_task_id}`);
+        dispatch({
+            type: DELETE_PROJECT_TASK,
+            payload: project_task_id
+        });
+    } 
 }
