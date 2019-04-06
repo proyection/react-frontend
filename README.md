@@ -4,6 +4,10 @@
 ---
 This is the react frontend project
 
+## Run the application
+---
+First, get the latest version of the proyection spring backend.
+
 ## Branching
 ---
 - `feature/[FEATURE_NAME]`
