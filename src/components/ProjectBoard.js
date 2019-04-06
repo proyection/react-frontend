@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ProjectTaskItem from './projectTask/ProjectTaskItem';
 
 class ProjectBoard extends Component {
     render() {
@@ -18,7 +19,7 @@ class ProjectBoard extends Component {
                                         <h3>TO DO</h3>
                                     </div>
                                 </div>
-                                {/* {todoItems} */}
+                                <ProjectTaskItem />
                             </div>
                             <div className="col-md-4">
                                 <div className="card text-center mb-2">
@@ -26,7 +27,7 @@ class ProjectBoard extends Component {
                                         <h3>In Progress</h3>
                                     </div>
                                 </div>
-                                {/* {inProgressItems} */}
+                                <ProjectTaskItem />
                             </div>
                             <div className="col-md-4">
                                 <div className="card text-center mb-2">
@@ -34,7 +35,7 @@ class ProjectBoard extends Component {
                                         <h3>Done</h3>
                                     </div>
                                 </div>
-                                {/* {doneItems} */}
+                                <ProjectTaskItem />
                             </div>
                         </div>
                     </div>
