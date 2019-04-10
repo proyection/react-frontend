@@ -2,14 +2,14 @@ import React from 'react'
 import ProyectionCard from './ProyectionCard';
 import ProyectionActionButton from './ProyectionActionButton';
 
-const ProyectionList = ({title, cards}) => {
+const ProyectionList = ({title, cards, listID}) => {
   return (
     <div style={styles.container}>
       <h4>{title}</h4>
-      { cards.map(card =>  
-      <ProyectionCard key={card.id} text={card.text}/>
-      )}
-      <ProyectionActionButton />
+      { cards.map(card =>  (
+      <ProyectionCard key={card.id} text={card.text} />
+      ))}
+      <ProyectionActionButton listID={listID} />
     </div>
   )
 }

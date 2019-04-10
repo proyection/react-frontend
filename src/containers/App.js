@@ -20,10 +20,11 @@ class App extends Component {
             <div style={styles.listsContainer}>
               <Route exact path="/" component={(props) => 
               lists.map(list => (
-                <ProyectionList {...props} key={list.id} title={list.title}
-                                cards={list.cards}  
+                <ProyectionList {...props}  key={list.id} title={list.title}
+                                cards={list.cards}  listID={list.id}
                 />))}
               />
+              
               <ProyectionActionButton list/>
             </div>
             {/* <Route exact path="/" component={ProjectBoard} />
