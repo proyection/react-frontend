@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from '../store';
 import Navbar from '../components/Navbar';
-import ProjectBoard from '../components/ProjectBoard';
-import AddProjectTask from '../components/projectTask/AddProjectTask';
-import UpdateProjectTask from '../components/projectTask/UpdateProjectTask';
+import ProyectionList from '../components/ProyectionList';
+// import ProjectBoard from '../components/ProjectBoard';
+// import AddProjectTask from '../components/projectTask/AddProjectTask';
+// import UpdateProjectTask from '../components/projectTask/UpdateProjectTask';
 
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
         <Router>
           <div className="App">
             <Navbar />
-            <Route exact path="/" component={ProjectBoard} />
+            <Route exact path="/" component={(props) => <ProyectionList {...props} title={"test"}
+                                />}
+            />
+            {/* <Route exact path="/" component={ProjectBoard} />
             <Route exact path="/addProjectTask" component={AddProjectTask} />
-            <Route exact path="/updateProjectTask/:project_task_id" component={UpdateProjectTask} />
+            <Route exact path="/updateProjectTask/:project_task_id" component={UpdateProjectTask} /> */}
           </div>
         </Router>
-      </Provider>
     );
   }
 }
