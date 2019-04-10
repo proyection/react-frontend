@@ -3,6 +3,8 @@ import Icon from "@material-ui/core/Icon";
 import Textarea from 'react-textarea-autosize';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
+import  { connect} from 'react-redux';
+import { addList, addCard } from '../actions';
 
 class ProyectionActionButton extends Component {
 
@@ -27,9 +29,29 @@ class ProyectionActionButton extends Component {
     this.setState({ text: e.target.value})
   }
 
+  handleAddList = () => {
+      const { dispatch } = this.props;
+      const { text } = this.state;
+
+      if(text){
+          dispatch(addList(text))
+      }
+
+      return;
+  };
+
+  handleAddCard = () => {
+    const { dispatch, listID } = this.props;
+    const { text } = this.state;
+
+    if(text){
+        dispatch(addCard(listID, text));
+    }
+  };
+
   renderAddButton = () => {
     const { list } = this.props;
-
+    debugger
     const buttonText = list ? "Agrega una lista" : "Agrega una tarea";
     const buttonTextOpacity = list ? 1 : 0.5;
     const buttonTextColor = list ? "white" : "inherit";
@@ -52,6 +74,7 @@ class ProyectionActionButton extends Component {
   }  
 
   renderForm = () => {
+      
       const { list } = this.props;
 
       const placeholder = list ? "Ingrese título de lista" : "Ingrese tarea";
@@ -81,6 +104,7 @@ class ProyectionActionButton extends Component {
           </Card>
           <div style={styles.formButtonGroup}>
               <Button 
+                onMouseDown={ list ? this.handleAddList : this.handleAddCard }
                 variant="contained" 
                 style={{ color: "white", backgroundColor: "#5acc44" }} 
               >{buttonTitle}</Button>
@@ -113,4 +137,4 @@ const styles = {
     }
 }
 
-export default ProyectionActionButton;
+export default connect()(ProyectionActionButton);
