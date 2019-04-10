@@ -6,15 +6,34 @@ import ProyectionList from '../components/ProyectionList';
 import { connect } from 'react-redux';
 import ProyectionActionButton from '../components/ProyectionActionButton';
 import { DragDropContext } from 'react-beautiful-dnd';
-
+import { sort } from '../actions';
+import styled from 'styled-components';
 // import ProjectBoard from '../components/ProjectBoard';
 // import AddProjectTask from '../components/projectTask/AddProjectTask';
 // import UpdateProjectTask from '../components/projectTask/UpdateProjectTask';
 
+const ListContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
 class App extends Component {
 
-  onDragEnd = () => {
-    //TODOS reordering logic
+  onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    this.props.dispatch(
+      sort(
+      source.droppableId,
+      destination.droppableId,
+      source.index,
+      destination.index,
+      draggableId
+    ));
   }
 
   render() {
@@ -25,7 +44,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
-            <div style={styles.listsContainer}>
+            <ListContainer>
               <Route exact path="/" component={(props) => 
               lists.map(list => (
                 <ProyectionList 
@@ -38,7 +57,7 @@ class App extends Component {
               />
               
               <ProyectionActionButton list/>
-            </div>
+            </ListContainer>
             {/* <Route exact path="/" component={ProjectBoard} />
             <Route exact path="/addProjectTask" component={AddProjectTask} />
             <Route exact path="/updateProjectTask/:project_task_id" component={UpdateProjectTask} /> */}
@@ -46,13 +65,6 @@ class App extends Component {
         </Router>
       </DragDropContext>
     );
-  }
-}
-
-const styles = {
-  listsContainer: {
-    display: 'flex',
-    flexDirection: 'row',
   }
 }
 
