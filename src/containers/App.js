@@ -8,6 +8,29 @@ import AddProjectTask from '../components/projectTask/AddProjectTask';
 import UpdateProjectTask from '../components/projectTask/UpdateProjectTask';
 import Register from '../components/usermanagement/Register';
 import Login from '../components/usermanagement/Login';
+import jwt_decode from 'jwt-decode';
+import setJWT from '../securityutils/setJWT';
+import { GET_ERRORS, SET_CURRENT_USER } from "../actions/types";
+import { logout } from '../actions/securityActions';  
+import store from '../store';
+
+
+const jwt = localStorage.jwtToken
+
+if (jwt) {
+  setJWT(jwt)
+  const decode_jwt = jwt_decode(jwt);
+  store.dispatch({
+    type: SET_CURRENT_USER,
+    payload: decode_jwt
+  });
+
+  const currentTime = Date.now()/1000;
+  if(decode_jwt.exp < currentTime) {
+    store.dispatch(logout());
+    window.location.href("/");
+  }
+}
 
 export default class App extends Component {
 
