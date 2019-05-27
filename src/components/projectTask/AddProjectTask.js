@@ -49,9 +49,6 @@ class AddProjectTask extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <Link to="/" className="btn btn-light">
-                                Regresar al administrador de tareas
-                            </Link>
                             <h4 className="display-4 text-center">Agregar /Actualizar tarea</h4>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">

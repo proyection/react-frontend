@@ -31,13 +31,16 @@ class UpdateProjectTask extends Component {
         status,
         limitDate
         } = nextProps.project_task;
+
+        var str = limitDate.toString();
+        var res = str.substr(0, 10);
     
         this.setState({
         id,
         summary,
         acceptanceCriteria,
         status,
-        limitDate
+        limitDate: res
         });
     }
     
@@ -71,9 +74,6 @@ class UpdateProjectTask extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
-                            <Link to="/" className="btn btn-light">
-                                Regresar al administrador de tareas
-                            </Link>
                             <h4 className="display-4 text-center">Agregar /Actualizar tarea</h4>
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
