@@ -32,8 +32,10 @@ class UpdateProjectTask extends Component {
         limitDate
         } = nextProps.project_task;
 
-        var str = limitDate.toString();
-        var res = str.substr(0, 10);
+        if (limitDate != null) {
+            var str = limitDate.toString();
+            var res = str.substr(0, 10);
+        }
     
         this.setState({
         id,
