@@ -21,7 +21,7 @@ class ProjectBoard extends Component {
       const BoardAlgorithm = project_tasks => {
           if(project_tasks.length) {
               const tasks = project_tasks.map(project_task => (
-                  <ProjectTaskItem key={project_task.id} project_task={project_task} />
+                  <ProjectTaskItem key={project_task.id} project_task={project_task} id={project_task.id}/>
               ));
   
               for(let i = 0; i < tasks.length; i++){
