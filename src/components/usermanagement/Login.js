@@ -8,13 +8,13 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
-      password: "",
-      errors: {}
+        "username": "",
+        "password": "",
+        errors: {}
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-  }
+}
 
   componentWillReceiveProps(nextProps) {
       if (nextProps.security.validToken) {
@@ -38,8 +38,8 @@ class Login extends Component {
   }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+    this.setState({ [e.target.name] : e.target.value})
+}
 
   render() {
     const { errors } = this.state;
@@ -57,9 +57,9 @@ class Login extends Component {
                         "is-invalid": errors.username
                     })}  
                     placeholder="Email Address"
-                    name="username"
+                    name="username" 
                     value={this.state.username}
-                    onChange={this.onChange}
+                    onChange={this.onChange}  
                   />
                   {
                     errors.username && (
@@ -84,7 +84,7 @@ class Login extends Component {
                     )
                   }
                 </div>
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <input name="loginBtn" type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>
           </div>
