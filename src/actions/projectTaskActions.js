@@ -9,7 +9,7 @@ import {
 export const addProjectTask = (project_task, history) => async dispatch => {
     
     try {
-        await axios.post("/api/tasks", project_task);
+        await axios.post("http://localhost:8080/api/tasks", project_task);
         history.push("/");
         dispatch({
             type: GET_ERRORS,
@@ -24,7 +24,7 @@ export const addProjectTask = (project_task, history) => async dispatch => {
 }
 
 export const getBacklog = () => async dispatch => {
-    const res = await axios.get("/api/tasks/all")
+    const res = await axios.get("http://localhost:8080/api/tasks/all")
     dispatch({
         type: GET_PROJECT_TASKS,
         payload: res.data
@@ -33,7 +33,7 @@ export const getBacklog = () => async dispatch => {
 
 export const deleteProjectTask = project_task_id => async dispatch => {
     if(window.confirm(`Estás eliminando el proyecto ${project_task_id}. Esta acción no puede ser modificada.`)){
-        await axios.delete(`/api/tasks/${project_task_id}`);
+        await axios.delete(`http://localhost:8080/api/tasks/${project_task_id}`);
         dispatch({
             type: DELETE_PROJECT_TASK,
             payload: project_task_id
@@ -43,7 +43,7 @@ export const deleteProjectTask = project_task_id => async dispatch => {
 
 export const getProjectTask = (project_task_id, history) => async dispatch => {
     try{
-        const res = await axios.get(`/api/tasks/${project_task_id}`);
+        const res = await axios.get(`http://localhost:8080/api/tasks/${project_task_id}`);
         dispatch({
             type: GET_PROJECT_TASK,
             payload: res.data
