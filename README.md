@@ -22,6 +22,7 @@ This is the react frontend project
 3. In your command line and in the repository location type: npm install.
 4. Run Spring Boot application.
 5. npm run.
+6. To run on firefox: BROWSER=firefox npm start
 
 ## Branching
 ---
